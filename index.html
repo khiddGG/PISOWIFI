@@ -42,27 +42,9 @@
             position: relative;
             z-index: 1;
         }
-        #timer {
-            font-size: 48px;
-            margin: 20px 0;
+        #loadingText {
+            font-size: 24px;
             color: #333;
-        }
-        #continueBtn {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #ee4d2d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #continueBtn:hover {
-            background-color: #ff6b4a;
-        }
-        #continueBtn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
         }
         .footer {
             position: fixed;
@@ -92,9 +74,7 @@
 
     <div class="container">
         <h1>PISOWIFI</h1>
-        <div id="timer">5</div>
         <p id="loadingText">Preparing your internet connection</p>
-        <button id="continueBtn" disabled>Continue</button>
     </div>
 
     <footer class="footer">
@@ -114,39 +94,18 @@
             'https://s.shopee.ph/5KzasDjFhp',
             'https://s.shopee.ph/7pgvqq8nth',
             'https://s.shopee.ph/800M3AplM5',
-'https://s.shopee.ph/6VBlUR8qHe'
+            'https://s.shopee.ph/6VBlUR8qHe'
         ];
 
-        let timeLeft = 5;
-        const timerElement = document.getElementById('timer');
-        const continueBtn = document.getElementById('continueBtn');
         const loadingText = document.getElementById('loadingText');
 
-        // Animate loading dots
-        let dots = 0;
-        const dotInterval = setInterval(() => {
-            dots = (dots + 1) % 4;
-            loadingText.textContent = "Preparing your internet connection" + ".".repeat(dots);
-        }, 500);
-
-        // Countdown
-        const countdown = setInterval(() => {
-            timeLeft--;
-            timerElement.textContent = timeLeft;
-
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                clearInterval(dotInterval);
-                continueBtn.disabled = false;
-                loadingText.textContent = "Internet is ready. You may continue.";
-            }
-        }, 1000);
-
-        // Redirect on button click
-        continueBtn.addEventListener('click', () => {
+        setTimeout(() => {
+            loadingText.textContent = "Internet is ready. Redirecting...";
             const randomLink = links[Math.floor(Math.random() * links.length)];
-            window.location.href = randomLink;
-        });
+            setTimeout(() => {
+                window.location.href = randomLink;
+            }, 100); // Slight delay for user to see the message
+        }, 1000); // Redirect after 1 second
     </script>
 </body>
 </html>
