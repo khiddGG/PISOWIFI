@@ -1,111 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMAEL PISOWIFI VENDO AND REPAIR</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            position: relative;
-            background-color: #f0f0f0;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(80%);
-            -webkit-filter: blur(80%);
-            z-index: -1;
-            opacity: 0.8;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 1;
-        }
-        #loadingText {
-            font-size: 24px;
-            color: #333;
-        }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-        }
-        .footer a {
-            color: #ee4d2d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .footer p {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMAEL PISOWIFI VENDO AND REPAIR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+      background-color: #f0f0f0;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(80%);
+      -webkit-filter: blur(80%);
+      z-index: -1;
+      opacity: 0.8;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    #loadingText {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .dots::after {
+      content: '';
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+    @keyframes dots {
+      0%   { content: ''; }
+      33%  { content: '.'; }
+      66%  { content: '..'; }
+      100% { content: '...'; }
+    }
+    #redirectButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ee4d2d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #redirectButton:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #redirectButton:hover:not(:disabled) {
+      background-color: #d13c22;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #ee4d2d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer p {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>PISOWIFI</h1>
-        <p id="loadingText">Preparing your internet connection</p>
-    </div>
+  <div class="container">
+    <h1>PISOWIFI</h1>
+    <p id="loadingText" class="dots">Preparing your internet connection</p>
+    <button id="redirectButton" disabled>Continue</button>
+  </div>
 
-    <footer class="footer">
-        <p>To avail Pisowifi or Repair</p>
-        <p>Message <a href="https://www.facebook.com/Kh1ddTV/" target="_blank">Samael</a></p>
-        <p>Contact number: 09360634339</p>
-    </footer>
+  <footer class="footer">
+    <p>To avail Pisowifi or Repair</p>
+    <p>Message <a href="https://www.facebook.com/Kh1ddTV/" target="_blank">Samael</a></p>
+    <p>Contact number: 09360634339</p>
+  </footer>
 
-    <script>
-        const links = [
-            'https://s.shopee.ph/8UwcdvnMT2',
-            'https://s.shopee.ph/9KVjdTwz4u',
-            'https://s.shopee.ph/9ACJRCS9NA',
-            'https://s.shopee.ph/2VfPUxqe1M',
-            'https://s.shopee.ph/y4WNeEyQ',
-            'https://s.shopee.ph/3Av6IDaElj',
-            'https://s.shopee.ph/5KzasDjFhp',
-            'https://s.shopee.ph/7pgvqq8nth',
-            'https://s.shopee.ph/800M3AplM5',
-            'https://s.shopee.ph/6VBlUR8qHe'
-        ];
+  <script>
+    const links = [
+      'https://s.shopee.ph/8UwcdvnMT2',
+      'https://s.shopee.ph/9KVjdTwz4u',
+      'https://s.shopee.ph/9ACJRCS9NA',
+      'https://s.shopee.ph/2VfPUxqe1M',
+      'https://s.shopee.ph/y4WNeEyQ',
+      'https://s.shopee.ph/3Av6IDaElj',
+      'https://s.shopee.ph/5KzasDjFhp',
+      'https://s.shopee.ph/7pgvqq8nth',
+      'https://s.shopee.ph/800M3AplM5',
+      'https://s.shopee.ph/6VBlUR8qHe'
+    ];
 
-        const loadingText = document.getElementById('loadingText');
+    const redirectButton = document.getElementById('redirectButton');
+    const loadingText = document.getElementById('loadingText');
 
-        setTimeout(() => {
-            loadingText.textContent = "Internet is ready. Redirecting...";
-            const randomLink = links[Math.floor(Math.random() * links.length)];
-            setTimeout(() => {
-                window.location.href = randomLink;
-            }, 100); // Slight delay for user to see the message
-        }, 1000); // Redirect after 1 second
-    </script>
+    // Enable button after 3 seconds
+    setTimeout(() => {
+      loadingText.textContent = "Click the button to continue";
+      loadingText.classList.remove("dots");
+      redirectButton.disabled = false;
+    }, 3000);
+
+    redirectButton.addEventListener('click', () => {
+      loadingText.textContent = "Redirecting you now...";
+      const randomLink = links[Math.floor(Math.random() * links.length)];
+      setTimeout(() => {
+        window.location.href = randomLink;
+      }, 500);
+    });
+  </script>
 </body>
 </html>
